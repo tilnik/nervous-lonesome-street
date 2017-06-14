@@ -4,7 +4,7 @@
 
 	<groupId>si.tilnik</groupId>
 	<artifactId>nls</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 
 	<properties>
 
@@ -24,7 +24,7 @@
 	<scm>
 		<connection>scm:git:file:///workspace/NLS/nervous-lonesome-street</connection>
 		<developerConnection>scm:git:file:///workspace/NLS/nervous-lonesome-street</developerConnection>
-		<tag>nls-1.0.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 
