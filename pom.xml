@@ -19,6 +19,8 @@
 
 	</properties>
 
+	<scm>git@github.com:tilnik/nervous-lonesome-street.git </scm>
+
 
 	<build>
 		<plugins>
