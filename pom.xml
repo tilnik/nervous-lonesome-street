@@ -4,7 +4,9 @@
 
 	<groupId>si.tilnik</groupId>
 	<artifactId>nls</artifactId>
-	<version>1.0.1</version>
+	<version>SNAPSHOT-1.0.1</version>
+
+	<packaging>war</packaging>
 
 	<properties>
 
@@ -12,8 +14,14 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+
 		<version.maven.compiler.plugin>3.3</version.maven.compiler.plugin>
 		<version.maven.source.plugin>3.0.0</version.maven.source.plugin>
+
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+
+		<version.wildfly.swarm>2017.6.1</version.wildfly.swarm>
+		<version.javaee.api>7.0</version.javaee.api>
 
 	</properties>
 
@@ -24,12 +32,83 @@
 	<scm>
 		<connection>scm:git:git@github.com:tilnik/nervous-lonesome-street.git</connection>
 		<developerConnection>scm:git:git@github.com:tilnik/nervous-lonesome-street.git</developerConnection>
-	  <tag>nls-1.0.1</tag>
-  </scm>
+		<tag>nls-1.0.1</tag>
+	</scm>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- https://mvnrepository.com/artifact/org.wildfly.swarm/bom -->
+			<dependency>
+				<groupId>org.wildfly.swarm</groupId>
+				<artifactId>bom</artifactId>
+				<version>${version.wildfly.swarm}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${version.javaee.api}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Wildfly Swarm Fractions -->
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>jaxrs</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.jboss.spec.javax.ws.rs</groupId>
+			<artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+			<version>1.0.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.7</version>
+		</dependency>
+
+
+	</dependencies>
 
 
 	<build>
+		<!--<finalName>nls</finalName>-->
 		<plugins>
+			<plugin>
+				<groupId>org.wildfly.swarm</groupId>
+				<artifactId>wildfly-swarm-plugin</artifactId>
+				<version>${version.wildfly.swarm}</version>
+				<executions>
+					<execution>
+						<id>package</id>
+						<goals>
+							<goal>package</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>start</id>
+					</execution>
+					<execution>
+						<id>stop</id>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${version.maven.compiler.plugin}</version>
