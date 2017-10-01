@@ -1,0 +1,13 @@
+swarm:
+  datasources:
+    data-sources:
+      NlsDS:
+        driver-name: oracle
+        connection-url: jdbc:oracle:thin:@kekec:1521:dev2
+        user-name: ai_dev
+        password: ai_dev
+#    jdbc-drivers:
+#      ojdbc7:
+#        driver-class-name: oracle.jdbc.driver.OracleDriver
+#        xa-datasource-name: oracle.jdbc.xa.client.OracleXADataSource
+#        driver-module-name: ojdbc7Driver
