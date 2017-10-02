@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.util.Date;
 import java.util.Optional;
 
-import javax.enterprise.context.RequestScoped;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.naming.InitialContext;
 import javax.persistence.EntityManager;
@@ -18,8 +18,8 @@ import javax.ws.rs.QueryParam;
 import si.tilnik.nls.entity.Foo;
 
 @Path("/")
-@RequestScoped
-//@Stateless
+//@RequestScoped
+@Stateless
 public class MyResource
 {
     @Inject
@@ -34,9 +34,9 @@ public class MyResource
         String fooId = f
                 .map(Foo::getCol1)
                 .map(x -> x.toString())
-                .orElse("Not found!")
-                ;
-        return String.format("Foo col0: %s",fooId);
+                .orElse("Not found!");
+        //        Foo foo = em.find(Foo.class, id);
+        return String.format("Foo col0: %s", fooId);
 
     }
 

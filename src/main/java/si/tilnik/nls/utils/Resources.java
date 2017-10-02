@@ -21,7 +21,7 @@ public class Resources
 {
 
     @Produces
-    @PersistenceContext
+    @PersistenceContext(name="primary", unitName = "primary")
     private EntityManager em;
 
     @Produces

@@ -20,7 +20,7 @@
 
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 
-		<version.wildfly-swarm>2017.6.1</version.wildfly-swarm>
+		<version.wildfly-swarm>2017.9.5</version.wildfly-swarm>
 		<version.javaee.api>7.0</version.javaee.api>
 
 	</properties>
@@ -92,7 +92,6 @@
 
 
 	<build>
-		<!--<finalName>nls</finalName>-->
 		<plugins>
 			<plugin>
 				<groupId>org.wildfly.swarm</groupId>
