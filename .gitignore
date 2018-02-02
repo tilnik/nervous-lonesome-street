@@ -3,4 +3,4 @@ target
 *.iml
 pom.xml.*
 release.properties
-/audit.log
+/*.log

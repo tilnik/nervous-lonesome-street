@@ -7,8 +7,38 @@ swarm:
         user-name: nls_reports
         password: nls_reports
   logging:
+    console-handlers:
+      nls_log_console_handler:
+        level: DEBUG
+        named-formatter: COLOR_PATTERN
+    file-handlers:
+      nls_log_file_handler:
+        append: true
+        autoflush: true
+        enabled: true
+        encoding: UTF-8
+        level: DEBUG
+        file:
+          path: "nls-service.log"
+        named-formatter: COLOR_PATTERN
+        suffix: .yyyy-MM-dd
+    root-logger:
+      level: DEBUG
+      handlers:
+          - nls_log_console_handler
+          - nls_log_file_handler
     loggers:
       si.tilnik.nls:
         level: DEBUG
+      io.undertow:
+        level: INFO
+      org.jboss:
+        level: INFO
+      org.hibernate:
+        level: INFO
       org.jboss.as.server.deployment:
         level: ERROR
+      org.wildfly:
+        level: INFO
+      org.xnio.nio:
+        level: INFO
