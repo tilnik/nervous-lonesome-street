@@ -1,4 +1,18 @@
 swarm:
+
+  security:
+    security-domains:
+      my-domain:
+        classic-authentication:
+          login-modules:
+            Database:
+              code: Database
+              flag: required
+              module-options:
+                dsJndiName: java:jboss/datasources/NlsDS
+                principalsQuery: SELECT password FROM NLS_USER WHERE username=?
+                rolesQuery: SELECT r.role_name, 'Roles' FROM NLS_USER u, NLS_USER_NLS_ROLE ur, NLS_ROLE r WHERE u.username=? AND u.nls_user_id = ur.nlsuser_nls_user_id AND ur.roles_nls_role_id = r.nls_role_id
+
   datasources:
     data-sources:
       NlsDS:

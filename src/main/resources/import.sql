@@ -1,3 +1,13 @@
 INSERT INTO NLS_ISSUE_TYPE (TYPE, DESCRIPTION) VALUES ('CR', 'Zahteva za spremembo');
 INSERT INTO NLS_ISSUE_TYPE (TYPE, DESCRIPTION) VALUES ('Bug', 'Odprava napake');
 INSERT INTO NLS_ISSUE_TYPE (TYPE, DESCRIPTION) VALUES ('Not a bug', 'Prijavljena nepravilnost ni napaka');
+
+INSERT INTO NLS_ROLE (ROLE_NAME) VALUES ('User');
+INSERT INTO NLS_ROLE (ROLE_NAME) VALUES ('Admin');
+
+
+INSERT INTO NLS_USER (NAME, SURNAME, USERNAME, PASSWORD) VALUES ('John', 'Doe', 'johnd', 'johnd');
+INSERT INTO NLS_USER (NAME, SURNAME, USERNAME, PASSWORD) VALUES ('John', 'Smith', 'johns', 'johns');
+
+INSERT INTO NLS_USER_NLS_ROLE (NLSUSER_NLS_USER_ID, ROLES_NLS_ROLE_ID) SELECT u.nls_user_id, r.nls_role_id FROM NLS_USER u, NLS_ROLE r WHERE r.role_name = 'Admin' AND u.username = 'johns';
+INSERT INTO NLS_USER_NLS_ROLE (NLSUSER_NLS_USER_ID, ROLES_NLS_ROLE_ID) SELECT u.nls_user_id, r.nls_role_id FROM NLS_USER u, NLS_ROLE r WHERE r.role_name = 'User';

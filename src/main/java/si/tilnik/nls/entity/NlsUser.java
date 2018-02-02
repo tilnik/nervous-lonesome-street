@@ -1,12 +1,15 @@
 package si.tilnik.nls.entity;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +26,11 @@ public class NlsUser
     private String name;
     @Column(name = "SURNAME")
     private String surname;
+    @Column(name = "PASSWORD")
+    private String password;
+
+    @ManyToMany()
+    private Set<NlsRole> roles;
 
     public Long getNlsUserId()
     {
@@ -62,6 +70,26 @@ public class NlsUser
     public void setSurname(String surname)
     {
         this.surname = surname;
+    }
+
+    public Set<NlsRole> getRoles()
+    {
+        return roles;
+    }
+
+    public void setRoles(Set<NlsRole> roles)
+    {
+        this.roles = roles;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
     }
 
     @Override

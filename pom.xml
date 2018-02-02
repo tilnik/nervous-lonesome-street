@@ -4,9 +4,80 @@
 
 	<groupId>si.tilnik</groupId>
 	<artifactId>nls</artifactId>
+	<dependencies>
+
+		<!-- Wildfly Swarm Fractions -->
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>cdi</artifactId>
+			<version>${version.wildfly-swarm}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>datasources</artifactId>
+			<version>${version.wildfly-swarm}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>ejb</artifactId>
+			<version>${version.wildfly-swarm}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${version.wildfly-swarm}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${version.javaee.api}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>jaxrs</artifactId>
+			<version>${version.wildfly-swarm}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>jpa</artifactId>
+			<version>${version.wildfly-swarm}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>logging</artifactId>
+			<version>${version.wildfly-swarm}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>management</artifactId>
+			<version>${version.wildfly-swarm}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+		<!--<dependency>-->
+		<!--<groupId>net.sf.jasperreports</groupId>-->
+		<!--<artifactId>jasperreports</artifactId>-->
+		<!--<version>6.5.1</version>-->
+		<!--</dependency>-->
+
+
+
+	</dependencies>
+
 	<version>SNAPSHOT-1.0.2</version>
 
 	<packaging>war</packaging>
+
+	<!--<scm>-->
+	<!--<developerConnection>git@github.com:tilnik/nervous-lonesome-street.git</developerConnection>-->
+	<!--</scm>-->
 
 	<properties>
 
@@ -25,78 +96,12 @@
 
 	</properties>
 
-	<!--<scm>-->
-	<!--<developerConnection>git@github.com:tilnik/nervous-lonesome-street.git</developerConnection>-->
-	<!--</scm>-->
 
 	<scm>
 		<connection>scm:git:git@github.com:tilnik/nervous-lonesome-street.git</connection>
 		<developerConnection>scm:git:git@github.com:tilnik/nervous-lonesome-street.git</developerConnection>
 		<tag>nls-1.0.1</tag>
 	</scm>
-
-
-	<dependencies>
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>${version.javaee.api}</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- Wildfly Swarm Fractions -->
-		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
-			<artifactId>jaxrs</artifactId>
-			<version>${version.wildfly-swarm}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
-			<artifactId>cdi</artifactId>
-			<version>${version.wildfly-swarm}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
-			<artifactId>datasources</artifactId>
-			<version>${version.wildfly-swarm}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
-			<artifactId>logging</artifactId>
-			<version>${version.wildfly-swarm}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
-			<artifactId>jpa</artifactId>
-			<version>${version.wildfly-swarm}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
-			<artifactId>ejb</artifactId>
-			<version>${version.wildfly-swarm}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>${version.wildfly-swarm}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc7</artifactId>
-			<version>12.1.0.2</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
-		<!--<dependency>-->
-			<!--<groupId>net.sf.jasperreports</groupId>-->
-			<!--<artifactId>jasperreports</artifactId>-->
-			<!--<version>6.5.1</version>-->
-		<!--</dependency>-->
-
-
-
-	</dependencies>
 
 
 	<build>
