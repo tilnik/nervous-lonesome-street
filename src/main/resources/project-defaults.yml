@@ -3,9 +3,9 @@ swarm:
     data-sources:
       NlsDS:
         driver-name: oracle
-        connection-url: jdbc:oracle:thin:@kekec:1521:dev2
-        user-name: ai_dev
-        password: ai_dev
+        connection-url: jdbc:oracle:thin:@//kekec12.medius:1521/dev.kekec12.medius
+        user-name: nls_reports
+        password: nls_reports
 #    jdbc-drivers:
 #      ojdbc7:
 #        driver-class-name: oracle.jdbc.driver.OracleDriver

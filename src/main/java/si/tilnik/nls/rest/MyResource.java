@@ -15,7 +15,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import si.tilnik.nls.entity.Foo;
+//import si.tilnik.nls.entity.Foo;
 
 @Path("/")
 //@RequestScoped
@@ -30,13 +30,13 @@ public class MyResource
     @Path("/foo")
     public String foo(@QueryParam("id") @DefaultValue("0") Long id)
     {
-        Optional<Foo> f = Optional.ofNullable(em.find(Foo.class, id));
-        String fooId = f
-                .map(Foo::getCol1)
-                .map(x -> x.toString())
-                .orElse("Not found!");
+//        Optional<Foo> f = Optional.ofNullable(em.find(Foo.class, id));
+//        String fooId = f
+//                .map(Foo::getCol1)
+//                .map(x -> x.toString())
+//                .orElse("Not found!");
         //        Foo foo = em.find(Foo.class, id);
-        return String.format("Foo col0: %s", fooId);
+        return String.format("Foo col0: %s", "AAA");
 
     }
 
