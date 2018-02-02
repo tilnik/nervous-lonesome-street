@@ -6,8 +6,9 @@ swarm:
         connection-url: jdbc:oracle:thin:@//kekec12.medius:1521/dev.kekec12.medius
         user-name: nls_reports
         password: nls_reports
-#    jdbc-drivers:
-#      ojdbc7:
-#        driver-class-name: oracle.jdbc.driver.OracleDriver
-#        xa-datasource-name: oracle.jdbc.xa.client.OracleXADataSource
-#        driver-module-name: ojdbc7Driver
+  logging:
+    loggers:
+      si.tilnik.nls:
+        level: DEBUG
+      org.jboss.as.server.deployment:
+        level: ERROR
