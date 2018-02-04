@@ -106,6 +106,10 @@
 
 	<build>
 		<plugins>
+
+			<!--<configuration>-->
+				<!--<name>${deployment.name}</name>-->
+			<!--</configuration>-->
 			<plugin>
 				<groupId>org.wildfly.swarm</groupId>
 				<artifactId>wildfly-swarm-plugin</artifactId>
