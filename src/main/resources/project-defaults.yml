@@ -5,10 +5,11 @@ swarm:
     nls-SNAPSHOT-1.0.2.war:
       web:
         login-config:
-          auth-method: FORM
-          form-login-config:
-            form-login-page: /login.jsp
-            form-error-page: /login_error.jsp
+          auth-method: BASIC
+#          auth-method: FORM
+#          form-login-config:
+#            form-login-page: /login.jsp
+#            form-error-page: /login_error.jsp
           security-domain: my-domain
         security-constraints:
           - url-pattern: /*
@@ -27,7 +28,8 @@ swarm:
                 dsJndiName: java:jboss/datasources/NlsDS
                 principalsQuery: SELECT password FROM NLS_USER WHERE username=?
                 rolesQuery: SELECT r.role_name, 'Roles' FROM NLS_USER u, NLS_USER_NLS_ROLE ur, NLS_ROLE r WHERE u.username=? AND u.nls_user_id = ur.nlsuser_nls_user_id AND ur.roles_nls_role_id = r.nls_role_id
-                hashAlgorithm: MD5
+#                hashAlgorithm: MD5
+                hashAlgorithm: SHA-256
                 hashEncoding: base64
 
   datasources:

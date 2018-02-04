@@ -6,21 +6,37 @@ import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Optional;
+import java.util.function.Function;
 
 public class PasswdUtil
 {
-    public static String md5base63Encode(String passwd)
+    //private static final String digestAlgorithm = "MD5";
+    private static final String digestAlgorithm = "SHA-256";
+
+    public static void main(String[] args)
     {
-        return md5base63Encode(passwd.toCharArray());
+        Function<String[], String> f = a -> Optional.ofNullable(a)
+                .filter(x -> x.length > 0)
+                .map(x -> x[0])
+                .orElse("geslo1.");
+
+        String passwd = f.apply(args);
+        System.out.println(String.format("%s Base64 encoded %s=%s", digestAlgorithm, passwd, encode(passwd)));
     }
 
-    public static String md5base63Encode(char[] passwd)
+    public static String encode(String passwd)
+    {
+        return encode(passwd.toCharArray());
+    }
+
+    public static String encode(char[] passwd)
     {
         MessageDigest digest = null;
 
         try
         {
-            digest = MessageDigest.getInstance("MD5");
+            digest = MessageDigest.getInstance(digestAlgorithm);
 
             digest.update(toBytes(passwd));
         }
